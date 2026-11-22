@@ -1,4 +1,4 @@
-# DINGLECRAFT on Windows: plays the committed DINGLECRAFT.html from disk (file://, like a double-click) in headless Chrome and
+# Randomcraft on Windows: plays the committed Randomcraft.html from disk (file://, like a double-click) in headless Chrome and
 # Edge on a real Windows runner (tools/qa/windows_check.mjs: muted, software GPU), checks that the build reproduces the play
 # file byte for byte on Windows, and runs the hermetic brain selftest there. No secrets are used. Runs when the play file or
 # the check changes, and on demand (Actions > windows > Run workflow). Screenshots are kept as run artifacts.
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'DINGLECRAFT.html'
+      - 'Randomcraft.html'
       - 'tools/qa/windows_check.mjs'
       - '.github/workflows/windows.yml'
 
