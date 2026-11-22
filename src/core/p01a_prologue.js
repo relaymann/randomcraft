@@ -15,7 +15,7 @@
 'use strict';
 
 const GAME_VERSION = '7.0';
-const RELEASE_LABEL = 'Randomcraft';   /* the public name of this game version (docs/RELEASING.md): GAME_VERSION stays the internal, monotonic number */
+const RELEASE_LABEL = 'Randomcraft 1.0';   /* the public name of this game version (docs/RELEASING.md): GAME_VERSION stays the internal, monotonic number */
 var HIT_HOW=null,EXPL_BY=null;  /* damage attribution (PART 53) */
 var TP={id:'og',q:-1,qr:1,hr:false,busy:false,want:null,shadow:false,mods:[],live:[],og:null,ogR:null,ogF:null,ev:{},warm:null,devTexBase:null};  /* texture packs (PART 54) */
 const SAVE_FORMAT  = 1;
