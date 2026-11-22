@@ -48,7 +48,7 @@ Then open the local address printed by the server. See [docs/BUILD.md](docs/BUIL
 
 ### Creatures, combat, and challenges
 - Encounter passive wildlife, hostile creatures, and powerful bosses, including roaming deer and cave mites that become dangerous after dark.
-- Fight with melee weapons, bows, firearms, gadgets, and other equipment; craft the new Trail Spear and prepare Trail Rations for longer journeys.
+- Fight with melee weapons, bows, firearms, gadgets, and other equipment; craft the new Trail Spear and Hunter Bow, and prepare Trail Rations for longer journeys.
 - Find boss encounters, dungeons, loot, and progression rewards while exploring.
 - Face optional world rules and unusual threats that can change how a world plays.
 

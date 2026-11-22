@@ -8,7 +8,7 @@ const RC_EXPANSION = Object.freeze({
   version: '1.1.0',
   biomes: ['Autumn Woodland','Wildflower Meadow','Redwood Forest','Misty Marsh','Windworn Highlands'],
   mobs: ['deer','cave_mite'],
-  items: ['Trail Spear','Trail Ration','Animal Hide','Chitin']
+  items: ['Trail Spear','Hunter Bow','Trail Ration','Animal Hide','Chitin']
 });
 
 /* New biome ids are appended; the original eight ids are save-compatible. */
@@ -160,9 +160,11 @@ IT.RC_SPEAR=260;
 IT.RC_RATION=261;
 IT.RC_HIDE=262;
 IT.RC_CHITIN=263;
+IT.RC_HUNTER_BOW=264;
 idef(IT.RC_SPEAR,{name:'Trail Spear',icon:'rc_spear',stack:1,dur:260,
   tool:{type:'sword',tier:1,mult:1.1,dur:260,dmg:6.5}});
 idef(IT.RC_RATION,{name:'Trail Ration',icon:'rc_ration',food:7});
+idef(IT.RC_HUNTER_BOW,{name:'Hunter Bow',icon:'rc_hunterbow',stack:1,bow:true,dur:180});
 idef(IT.RC_HIDE,{name:'Animal Hide',icon:'rc_hide'});
 idef(IT.RC_CHITIN,{name:'Chitin',icon:'rc_chitin'});
 tile('rc_spear',c=>{
@@ -175,6 +177,12 @@ tile('rc_ration',c=>{
   c.fillStyle='#d9b56c';c.fillRect(4,4,8,2);c.fillStyle='#6b8b45';c.fillRect(5,8,6,2);
   c.fillStyle='#f0d69a';c.fillRect(4,12,8,1);
 });
+tile('rc_hunterbow',c=>{
+  c.clearRect(0,0,16,16);c.strokeStyle='#9b6337';c.lineWidth=2;
+  c.beginPath();c.moveTo(5,1);c.quadraticCurveTo(14,8,5,15);c.stroke();
+  c.strokeStyle='#d9d2b5';c.lineWidth=1;c.beginPath();c.moveTo(5,1);c.lineTo(5,15);c.stroke();
+  c.fillStyle='#d7b36b';c.fillRect(4,7,3,2);
+});
 tile('rc_hide',c=>{
   c.clearRect(0,0,16,16);c.fillStyle='#a87845';c.fillRect(3,3,10,10);
   c.fillStyle='#d0a16a';c.fillRect(5,4,6,7);c.fillStyle='#78502f';c.fillRect(4,11,8,2);
@@ -185,6 +193,7 @@ tile('rc_chitin',c=>{
   c.fillStyle='#284c40';c.fillRect(3,6,2,5);c.fillRect(11,6,2,5);
 });
 R(['  S',' I ','S  '],{S:IT.STICK,I:IT.IRON},IT.RC_SPEAR,1);
+R(['STH','S H','STH'],{S:IT.STICK,T:IT.STRING,H:IT.RC_HIDE},IT.RC_HUNTER_BOW,1);
 R([' M ','SAS',' M '],{M:IT.STEAK,S:IT.APPLE,A:IT.APPLE},IT.RC_RATION,2);
 
 /* Two new creatures use the established mob rig, physics, drops and XP loop. */
