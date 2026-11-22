@@ -1,9 +1,11 @@
-# DINGLECRAFT
+# Randomcraft
 
-**The only part of this entire project not written by AI is the paragraph you're reading right now. If you don't understand anything, neither do I. This GitHub repository holds the source code for the entire game in case people want to add / change things themselves but I cannot provide technical support if you do not know what you're doing (because again, I don't know either lol). If you just want to play the game download the HTML either from here or from https://dandingle.store/dinglecraft**
+**The only part of this entire project not written by AI is the paragraph you're reading right now. If you don't understand anything, neither do I. This GitHub repository holds the source code for the entire game in case people want to add / change things themselves but I cannot provide technical support if you do not know what you're doing (because again, I don't know either lol). If you just want to play the game download the HTML either from here or from https://github.com/relaymann/randomcraft**
 
 
 
+
+Randomcraft is a heavily modified fork of Dinglecraft by Dan Dingle. Original creator attribution and the repository's LICENSE remain unchanged.
 
 A fan-made, Minecraft-style voxel sandbox that ships as **one HTML file**. Punch trees, build a house, then find out
 the game also has a casino, a stock market, rideable dragons, a microtransaction store that sells "Remove Ads" (there
@@ -13,16 +15,16 @@ taken a bite out of the world.
 
 It runs on [three.js](https://threejs.org) r128 and nothing else: no framework, no bundler, no npm packages in the game.
 The whole game is about 41,000 lines of plain JavaScript, built here from per-system source files into a single
-`dinglecraft_v<version>.html` you can double-click. three.js is bundled inside that file, so it plays offline.
+`randomcraft_v<version>.html` you can double-click. three.js is bundled inside that file, so it plays offline.
 
-> DINGLECRAFT is an independent fan-made game. NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG
+> RANDOMCRAFT is an independent fan-made game. NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG
 > OR MICROSOFT. Other names belong to their owners. Free to play and tinker with, not to redistribute: see [LICENSE](LICENSE).
 
 ---
 
 ## Play it
 
-**Just want to play?** Download [`DINGLECRAFT.html`](DINGLECRAFT.html) (the newest release, about 42.5 MB: open it on
+**Just want to play?** Download [`RANDOMCRAFT.html`](RANDOMCRAFT.html) (the newest release, about 42.5 MB: open it on
 GitHub and press the download button) and double-click it. That is the whole game, on Windows, macOS or Linux. It is
 developed and tested in Chrome, so an up-to-date Chrome or Edge is the safest bet.
 
@@ -34,7 +36,7 @@ bundled into the file. To build the file yourself you need [Node.js](https://nod
 npm run build
 ```
 
-That writes `dist/dinglecraft_v<game version>.html` (Release 1.0 builds `dinglecraft_v6.9.html`; about 42.5 MB, every
+That writes `dist/randomcraft_v<game version>.html` (Release 1.0 builds `randomcraft_v6.9.html`; about 42.5 MB, every
 texture is inside it). Then either:
 
 - **double-click it** (it works straight from disk), or
@@ -83,7 +85,7 @@ npm run build              # about 1 second
 the packed art in `assets/packed/` into `hrassets.js`, and writes:
 
 - `build/`: `head.html`, `game.js`, `hrassets.js`, `tail.html`, the two asset files and `build.json` (sizes and md5s);
-- `dist/dinglecraft_v<VER>.html`: the game, `head + game + hrassets + tail`.
+- `dist/randomcraft_v<VER>.html`: the game, `head + game + hrassets + tail`.
 
 It checks a lot on the way (order files, syntax, size caps, version strings, asset hashes) and stops with a clear message
 when something is off. A version that has already shipped is **frozen**: if your change alters the output of a shipped
