@@ -3,9 +3,11 @@
    frozen core suite keep working, but players never see it. PATCH_LOG still feeds CHANGELOG.md (scripts/changelog.mjs)
    and the release tooling. Data-driven off GAME_VERSION so it can't drift from the shipped build. */
 const PATCH_LOG=[
- {v:GAME_VERSION,label:RELEASE_LABEL,title:'The Randomcraft Rebrand',lines:[
-    'The game is now Randomcraft. Its title screen, menus, project metadata and build output use the new name.',
-    'Randomcraft is a fork of Dinglecraft by Dan Dingle; original attribution and licence terms remain in place.',
+ {v:GAME_VERSION,label:RELEASE_LABEL,title:'A New Beginning',lines:[
+    'Welcome to RANDOMCRAFT 1.0: a standalone voxel sandbox for building, survival, exploration, and making your own stories.',
+    'Explore generated worlds, build and craft, discover structures, fight creatures and bosses, and travel to the Nether and Aether.',
+    'Choose Survival or Creative, experiment with gadgets and vehicles, and optionally enable the Hyperreal visuals or AI players.',
+    'This independent fork builds on Dinglecraft by Dan Dingle; original attribution and third-party licence terms are preserved.'
   ]},
  {v:'6.9',label:'Release 1.0',title:'Replays',lines:[
     'REPLAYS: the game keeps your last 30 seconds ready. Press F8 and it saves as an MP4 video, sound, records and paintings included. Turn it on or off in Settings.',
