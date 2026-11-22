@@ -108,8 +108,10 @@ function rcStampStructures(blocks,x0,z0){
       const lx=wx-x0,lz=wz-z0;
       if(lx<0||lx>=CH||lz<0||lz>=CH||wy<1||wy>=WH)return;
       const i=bidx(lx,wy,lz);
-      if(blocks[i]===B.AIR||wy===y)blocks[i]=id;
-      if(id===B.RC_LANTERN)torches.add(bkey(wx,wy,wz));
+      if(blocks[i]===B.AIR||wy===y){
+        blocks[i]=id;
+        if(id===B.RC_LANTERN)torches.add(bkey(wx,wy,wz));
+      }
     };
     if(kind===0){
       /* A broken roadside watch post with a useful cache on its upper deck. */
