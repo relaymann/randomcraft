@@ -24,8 +24,7 @@ The whole game is about 41,000 lines of plain JavaScript, built here from per-sy
 
 ## Play it
 
-**Just want to play?** Download [`RANDOMCRAFT.html`](RANDOMCRAFT.html) (the newest release, about 42.5 MB: open it on
-GitHub and press the download button) and double-click it. That is the whole game, on Windows, macOS or Linux. It is
+**Just want to play?** Build the game with `npm run build`, then open the generated `dist/randomcraft_v<version>.html` file. That is the whole game, on Windows, macOS or Linux. It is
 developed and tested in Chrome, so an up-to-date Chrome or Edge is the safest bet.
 
 You need a desktop browser with WebGL (WebGL2 for the Hyperreal texture pack). No internet connection: three.js is
