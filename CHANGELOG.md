@@ -1,4 +1,4 @@
-# DINGLECRAFT changelog
+# Randomcraft changelog
 
 Every release's patch notes, newest first. This file is generated from
 `PATCH_LOG` in `src/ui/p28_patch_notes.js` by `npm run changelog`: change the patch notes there, never here.
