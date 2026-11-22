@@ -173,7 +173,7 @@ select.mc-in{appearance:auto}
   padding:6px 8px;margin:4px 0;font-size:15px}
 .wrow span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wrow .mc-btn.small{padding:7px 12px;font-size:14px}
-@media (prefers-reduced-motion:reduce){#tlogo{animation:none}.mc-btn{transition:none}}
+@media (prefers-reduced-motion:reduce){#tlogo,#tbrand{animation:none}.mc-btn{transition:none}}
 @media (max-height:520px){#tstage{gap:8px;padding:8px 10px}#tlogo{width:min(100%,520px)}
   #tmain{gap:6px}#tmain .mc-btn{padding:9px 12px;font-size:16px}#tmain .trow .mc-btn{padding:8px 6px;font-size:14px}}
 /* a phone on its side: the logo on the left, the menu on the right */
