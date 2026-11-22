@@ -156,11 +156,11 @@ genChunk=function(cx,cz){
 };
 
 /* Field gear and drops. Item ids are appended without changing existing ids. */
-IT.RC_SPEAR=260;
-IT.RC_RATION=261;
-IT.RC_HIDE=262;
-IT.RC_CHITIN=263;
-IT.RC_HUNTER_BOW=264;
+IT.RC_SPEAR=290;
+IT.RC_RATION=291;
+IT.RC_HIDE=292;
+IT.RC_CHITIN=293;
+IT.RC_HUNTER_BOW=294;
 idef(IT.RC_SPEAR,{name:'Trail Spear',icon:'rc_spear',stack:1,dur:260,
   tool:{type:'sword',tier:1,mult:1.1,dur:260,dmg:6.5}});
 idef(IT.RC_RATION,{name:'Trail Ration',icon:'rc_ration',food:7});
