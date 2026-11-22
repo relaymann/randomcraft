@@ -7,7 +7,7 @@ const PATCH_LOG=[
     'The game is now Randomcraft. Its title screen, menus, project metadata and build output use the new name.',
     'Randomcraft is a fork of Dinglecraft by Dan Dingle; original attribution and licence terms remain in place.',
   ]},
- {v:GAME_VERSION,label:RELEASE_LABEL,title:'Replays',lines:[
+ {v:'6.9',label:'Release 1.0',title:'Replays',lines:[
     'REPLAYS: the game keeps your last 30 seconds ready. Press F8 and it saves as an MP4 video, sound, records and paintings included. Turn it on or off in Settings.',
     'SCREENSHOTS: F2 saves a picture (PNG).',
     'First launch says hello: share your best moments on r/DanDingle.',
