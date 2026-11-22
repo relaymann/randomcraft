@@ -5,7 +5,7 @@
 
    1. checks Node >= 20;
    2. installs the Anthropic SDK from brain/package-lock.json on first run (npm ci);
-   3. builds the game (node scripts/build.mjs) if the game folder has no dinglecraft_v*.html;
+   3. builds the game (node scripts/build.mjs) if the game folder has no randomcraft_v*.html;
    4. starts the brain (brain/dingle-brain.mjs) in this terminal;
    5. opens http://127.0.0.1:<port>/ in the default browser once /health answers.
 
@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 const BRAIN_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(BRAIN_DIR, '..');
-const VERSION_RE = /^dinglecraft_v(\d+)\.(\d+)\.html$/;
+const VERSION_RE = /^randomcraft_v(\d+)\.(\d+)\.html$/;
 const args = new Set(process.argv.slice(2));
 const noOpen = args.has('--no-open') || process.env.DINGLE_NO_OPEN === '1';
 const noBuild = args.has('--no-build');
@@ -52,7 +52,7 @@ const gameDir = path.resolve(process.env.DINGLE_GAME_DIR || path.join(REPO, 'dis
 const hasGame = () => { try { return fs.readdirSync(gameDir).some((n) => VERSION_RE.test(n)); } catch { return false; } };
 if (!hasGame()) {
   if (noBuild || process.env.DINGLE_GAME_DIR) {
-    say(`No dinglecraft_v*.html in ${path.relative(REPO, gameDir) || gameDir} - the brain will start, but there is no game to serve yet.`);
+    say(`No randomcraft_v*.html in ${path.relative(REPO, gameDir) || gameDir} - the brain will start, but there is no game to serve yet.`);
   } else {
     say('No game build yet: building it (node scripts/build.mjs, a second or two)...');
     const r = spawnSync(process.execPath, [path.join(REPO, 'scripts', 'build.mjs'), '--quiet'], { cwd: REPO, stdio: 'inherit' });
