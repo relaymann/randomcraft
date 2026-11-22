@@ -1,8 +1,8 @@
 {
   "name": "randomcraft",
-  "version": "7.0.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Randomcraft: a fan-made voxel sandbox that ships as one HTML file.",
+  "description": "Randomcraft 1.0: a standalone voxel sandbox for building, exploration, and survival.",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
     "node": ">=20"
