@@ -1,4 +1,4 @@
-/* DINGLECRAFT AI brain launcher (cross-platform; the macOS double-click version is
+/* Randomcraft AI brain launcher (cross-platform; the macOS double-click version is
    "Start AI Brain.command" in the repo root, which calls this file).
 
    node brain/launch.mjs [--no-open] [--no-build]
