@@ -1,10 +1,10 @@
 if(typeof window==='undefined'||typeof __VOXTEST!=='undefined'){
-  if(typeof module!=='undefined')module.exports={B,IT,DEFS,RECIPES,GROUPS,FUELS,SMELT,
+  if(typeof module!=='undefined')module.exports={B,IT,DEFS,RECIPES,GROUPS,FUELS,SMELT,BIOME,BIOME_NAME,RC_EXPANSION,rcBiomeStats,
     calcCraft,mkResult,takeCraft,invAddTo,invConsume,invCount,toolId,stackMax,
     breakTime,canHarvest,blockDrop,terrainInfo,hashSeed,MOBT,setSeed:s=>{SEED=s;COLM.clear();},
     colInfo:( x,z)=>colInfo(x,z),rollOffers,enchCost};
 }else{
-  window.__vox={...CREX,...PGEX,...MGEX,...TPEX,AGENTS,agByName,agJoinAll,agLeaveAll,tickBots,getAG:()=>({active:AG_ACTIVE,t:AG_T,epoch:AG_EPOCH}),
+  window.__vox={...CREX,...PGEX,...MGEX,...TPEX,RC_EXPANSION,rcBiomeStats,AGENTS,agByName,agJoinAll,agLeaveAll,tickBots,getAG:()=>({active:AG_ACTIVE,t:AG_T,epoch:AG_EPOCH}),
     setAgT:v=>{AG_T=v;},setBrainMock:f=>{BRAIN.mock=f;BRAIN.ok=!!f;BRAIN.off=!f;AG_EPOCH++;for(const a of AGENTS){if(a.bs){a.bs.actFly=false;a.bs.mindFly=false;}if(a.bjob)a.bjob.inflight=false;}},BRAIN,chatSubmit,CHAT,agStructs,BOWN,OWNC,
     bjView,bjValidate,bjNew,bjTick,agPlaceBlock,agBreakBlock,agObs,agGut,pcmpCycle,getPC:()=>P.pcmpT,FLOWER_IDS,bioFlower,
     agHurt,agSay,agHear,agRel,SK,TICKETS,DEFER,ticketHeld,mobBotTarget,agEvent,agThink,agApplyAct,agApplyMind,openChat,

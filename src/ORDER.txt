@@ -95,6 +95,10 @@ ai_players/a8_mind.js
 ai_players/a9_ui.js
 ai_players/mob_helpers.js
 
+# RANDOMCRAFT 1.1 — additive Vanilla+ expansion (newest update modules first)
+randomcraft/r2_building_decor.js
+randomcraft/r1_overworld_expansion.js
+
 # PART 57: the Malgorath Update
 malgorath/m0_contract.js
 malgorath/m1_layout.js

@@ -34,19 +34,21 @@ Then open the local address printed by the server. See [docs/BUILD.md](docs/BUIL
 ### Explore a generated voxel world
 - Create worlds with a name, custom seed, and Survival or Creative mode.
 - Explore a procedurally generated block world with varied terrain, caves, ores, water, and points of interest.
-- Discover structures, dungeons, fortresses, shrines, and other places worth exploring.
+- Find five additional Overworld regions: autumn woodland, wildflower meadow, redwood forest, misty marsh, and windworn highlands.
+- Discover abandoned watch posts, overgrown stone rings, wilderness camps, dungeons, fortresses, shrines, and other places worth exploring.
 - Save worlds in the browser, then export and import world files to move or back them up.
 
 ### Build, mine, craft, and survive
 - Gather resources, mine blocks, craft equipment, and build your own structures.
+- Expand builds with mossy stone bricks, polished slate, darkwood planks, trail lanterns, and wildflower planters.
 - Use tools, weapons, armour, furnaces, chests, doors, and other interactive blocks.
 - Manage health, hunger, inventory, equipment durability, and the day/night cycle in Survival.
 - Switch to Creative for unrestricted building and experimentation.
 - Configure world rules when creating a world, with additional controls available in-game.
 
 ### Creatures, combat, and challenges
-- Encounter passive wildlife, hostile creatures, and powerful bosses.
-- Fight with melee weapons, bows, firearms, gadgets, and other equipment.
+- Encounter passive wildlife, hostile creatures, and powerful bosses, including roaming deer and cave mites that become dangerous after dark.
+- Fight with melee weapons, bows, firearms, gadgets, and other equipment; craft the new Trail Spear and prepare Trail Rations for longer journeys.
 - Find boss encounters, dungeons, loot, and progression rewards while exploring.
 - Face optional world rules and unusual threats that can change how a world plays.
 
