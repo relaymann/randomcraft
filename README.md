@@ -30,8 +30,7 @@ bundled into the file. To build the file yourself you need [Node.js](https://nod
 npm run build
 ```
 
-That writes `dist/randomcraft_v<game version>.html` (Release 1.0 builds `randomcraft_v6.9.html`; about 42.5 MB, every
-texture is inside it). Then either:
+That writes `dist/randomcraft_v7.0.html` (about 42.5 MB; every texture is inside it). `RANDOMCRAFT.html` at the repository root is the frozen v6.9 legacy snapshot; use the generated v7.0 file to play the rebranded fork. Then either:
 
 - **double-click it** (it works straight from disk), or
 - **serve it:** `npm run serve`, then open the `dist/` link it prints (`http://127.0.0.1:8643/...`).
