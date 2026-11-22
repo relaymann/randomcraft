@@ -1,5 +1,5 @@
 /* ===================================================================== */
-/* PART 21 — THE DINGLE STORE(tm)  (2.0)                                 */
+/* PART 21 — THE RANDOMCRAFT STORE(tm)  (2.0)                                 */
 /* ===================================================================== */
 let storeOpen=false;
 let powOpen=false;
@@ -44,7 +44,7 @@ const STORE_CAT=[
   {key:'joke_bpass', kind:'joke', once:true, price:999,  name:'Battle Pass S1',  desc:'Earn rewards for continuing to exist.'},
   {key:'joke_subbtn',kind:'joke', once:false,price:1287, name:'Subscribe Button', desc:'Throwable. Comes back. Monetizes mobs on impact.'},
   {key:'joke_terr',  kind:'joke', once:false,price:5999, name:'DEEP DIRT 2D',        desc:'A 2D mining game. Probably. Pre-installed on a Gaming Rig. Place it. Play it. Touch even less grass.'},
-  {key:'joke_cine',  kind:'joke', once:false,price:3999, name:'DINGLE CINEMA',    desc:'A whole cinema in a box. Three films. You can climb into all of them. Popcorn for winners.'},
+  {key:'joke_cine',  kind:'joke', once:false,price:3999, name:'RANDOMCRAFT CINEMA',    desc:'A whole cinema in a box. Three films. You can climb into all of them. Popcorn for winners.'},
 ];
 function storeBuy(key){
   const it=STORE_CAT.find(c=>c.key===key);
@@ -58,7 +58,7 @@ function storeBuy(key){
       return true;
     }
     if(it.once&&P.own.includes(key)){showToast('You already own that. It does the same amount of nothing.');return false;}
-    if(P.db<it.price){showToast('Insufficient DingleBucks. Have you considered buying more DingleBucks?');playS('click');return false;}
+    if(P.db<it.price){showToast('Insufficient RandomBucks. Have you considered buying more RandomBucks?');playS('click');return false;}
     P.db-=it.price;
     if(it.once)P.own.push(key);
     if(key==='joke_ads')showToast('Ads removed forever! (There were never any ads.)');
@@ -73,13 +73,13 @@ function storeBuy(key){
     if(key==='joke_bpass'){P.bp=true;P.bpLvl=0;P.bpT=180;showToast('BATTLE PASS SEASON 1 ACTIVATED! Rewards every 3 minutes of your finite life.');playS('jackpot');}
     if(key==='joke_subbtn'){givePlayer(IT.SUBBTN,1);showToast('SUBSCRIBE BUTTON acquired! Ring the bell for... no, that one is DLC.');playS('jackpot');}
     if(key==='joke_terr'){givePlayer(B.TERM,1);showToast('DEEP DIRT 2D acquired! One (1) Gaming Rig added to your inventory. Games sold separately (this one is included).');playS('jackpot');}
-    if(key==='joke_cine'){givePlayer(B.CINEMA,1);showToast('DINGLE CINEMA acquired! Place the kit and the building assembles itself. Union rules.');playS('jackpot');}
+    if(key==='joke_cine'){givePlayer(B.CINEMA,1);showToast('RANDOMCRAFT CINEMA acquired! Place the kit and the building assembles itself. Union rules.');playS('jackpot');}
     renderStore();
     return true;
   }
   /* cosmetics */
   if(!P.own.includes(key)){
-    if(P.db<it.price){showToast('Insufficient DingleBucks. Have you considered buying more DingleBucks?');playS('click');return false;}
+    if(P.db<it.price){showToast('Insufficient RandomBucks. Have you considered buying more RandomBucks?');playS('click');return false;}
     P.db-=it.price;
     P.own.push(key);
     showToast(it.name+' purchased! A real money-was-spent moment.');
@@ -94,13 +94,13 @@ function buyDB(){
   if(invConsume(P.inv,IT.DIAMOND,10)){
     P.db+=1000;
     redrawHotbar();
-    showToast('+1000 DingleBucks! BEST VALUE! Most popular! Everyone is doing this!');
+    showToast('+1000 RandomBucks! BEST VALUE! Most popular! Everyone is doing this!');
     playS('jackpot');
-  }else showToast('You need 10 diamonds. The DingleBucks economy thanks you for your interest.');
+  }else showToast('You need 10 diamonds. The RandomBucks economy thanks you for your interest.');
   renderStore();
 }
 function openStore(){
-  if(!GR.store){if(typeof restorePause==='function')restorePause();return;}   /* the Dingle Store game rule */
+  if(!GR.store){if(typeof restorePause==='function')restorePause();return;}   /* the Randomcraft Store game rule */
   if(DIM==='puppet'){showToast('No crew on stage.');if(typeof restorePause==='function')restorePause();return;}
   storeOpen=true;
   const el=$('store');
