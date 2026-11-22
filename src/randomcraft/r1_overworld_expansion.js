@@ -72,6 +72,9 @@ treeAt = function(x,z){
    The 112-block grid avoids clumping with the existing village grid. */
 const RC_STRUCT_GRID=112;
 const RC_STRUCT_CACHE=new Map();
+const RC_CHEST_PENDING=[];
+const RC_CHEST_QUEUED=new Set();
+function rcQueueChest(x,y,z){const k=SEED+':'+DIM+':'+x+','+y+','+z;if(!RC_CHEST_QUEUED.has(k)){RC_CHEST_QUEUED.add(k);RC_CHEST_PENDING.push([x,y,z,k,SEED]);}}
 function rcStructureCell(gx,gz){
   const key=SEED+':'+gx+','+gz;
   if(RC_STRUCT_CACHE.has(key))return RC_STRUCT_CACHE.get(key);
@@ -118,7 +121,7 @@ function rcStampStructures(blocks,x0,z0){
       for(let dx=-1;dx<=1;dx++)for(let dz=-1;dz<=1;dz++)put(x+dx,y+6,z+dz,B.RC_DARK_PLANK);
       put(x,y+7,z,B.RC_LANTERN);
       put(x+1,y+7,z,B.CHEST);
-      if(typeof lootFill==='function'&&x+1>=x0&&x+1<x0+CH&&z>=z0&&z<z0+CH)lootFill(x+1,y+7,z,false);
+      if(x+1>=x0&&x+1<x0+CH&&z>=z0&&z<z0+CH)rcQueueChest(x+1,y+7,z);
     }else if(kind===1){
       /* An overgrown stone ring, with a broken central marker. */
       for(let dx=-5;dx<=5;dx++)for(let dz=-5;dz<=5;dz++){
@@ -140,7 +143,7 @@ function rcStampStructures(blocks,x0,z0){
       }
       put(x-2,y+2,z,B.WOOL);put(x+2,y+2,z,B.WOOL);
       put(x+3,y+1,z,B.CHEST);
-      if(typeof lootFill==='function'&&x+3>=x0&&x+3<x0+CH&&z>=z0&&z<z0+CH)lootFill(x+3,y+1,z,false);
+      if(x+3>=x0&&x+3<x0+CH&&z>=z0&&z<z0+CH)rcQueueChest(x+3,y+1,z);
       put(x-3,y+1,z,B.RC_LANTERN);
     }
   }
@@ -265,6 +268,14 @@ let rcAmbientT=0;
 updateEntities=function(dt){
   rcBaseUpdateEntities(dt);
   rcAmbientT-=dt;
+  let rcChestWork=0;
+  for(let i=0;i<RC_CHEST_PENDING.length&&rcChestWork<1;){
+    const q=RC_CHEST_PENDING[i];
+    if(q[4]!==SEED){RC_CHEST_PENDING.splice(i,1);RC_CHEST_QUEUED.delete(q[3]);continue;}
+    if(!chunkAt(q[0],q[2])){i++;continue;}
+    RC_CHEST_PENDING.splice(i,1);RC_CHEST_QUEUED.delete(q[3]);rcChestWork++;
+    if(getBlock(q[0],q[1],q[2])===B.CHEST&&typeof lootFill==='function')lootFill(q[0],q[1],q[2],false);
+  }
   if(rcAmbientT>0||!P||P.dead||!playing||DIM!=='over'||P.y<1)return;
   rcAmbientT=3.8;
   const x=Math.floor(P.x),y=Math.floor(P.y),z=Math.floor(P.z);
