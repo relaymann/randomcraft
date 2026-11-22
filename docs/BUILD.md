@@ -44,7 +44,7 @@ and no packages. It takes about a second.
 8. **tail.** `html/tail.html` must begin with `</script>`.
 9. **Write** (each file to a temp name, then renamed into place):
    - `build/`: `head.html`, `game.js`, `hr_assets.gen.js`, `mg_assets.gen.js`, `hrassets.js`, `tail.html`, `build.json`;
-   - `dist/dinglecraft_v<VER>.html` = head + game + hrassets + tail.
+   - `dist/randomcraft_v<VER>.html` = head + game + hrassets + tail.
 10. **Syntax.** `node --check` on `build/game.js`, `build/hrassets.js`, and the script extracted from the html.
 11. **Cap.** The html must stay under `html_cap` in `scripts/guards.json` (45,000,000 bytes).
 12. **Frozen check.** If `GAME_VERSION` is listed in `tests/fixtures/shipped.json`, the html's md5 must match the shipped

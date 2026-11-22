@@ -1,6 +1,6 @@
 // GAME_VERSION, RELEASE_LABEL and the places they are written (docs/RELEASING.md, "Versions and release labels").
 // GAME_VERSION is the internal, monotonic two-part number ('maj.min'): saves, migrations, version comparisons, the dist file
-// name and the brain (it only serves dinglecraft_vX.Y.html) use it. RELEASE_LABEL is the public name of that game version
+// name and the brain (it only serves randomcraft_vX.Y.html) use it. RELEASE_LABEL is the public name of that game version
 // ('Release 1.0'): everything a player or reader sees (title screen, win screen, patch-notes heading, README, CHANGELOG).
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,7 +22,7 @@ export const SITES = [
 export const LABEL_SITES = [
   { file: VERSION_FILE, re: /^const RELEASE_LABEL = '([^'\\<>\n]+)';/gm },
   { file: 'html/dom/title.html', re: /id="t_ver"[^>]*>([^<]*)</g },
-  { file: 'html/dom/panels_b.html', re: /id="winsmall"[^>]*>DINGLECRAFT ([A-Za-z0-9 .\-]+?)\. /g },
+  { file: 'html/dom/panels_b.html', re: /id="winsmall"[^>]*>RANDOMCRAFT ([A-Za-z0-9 .\-]+?)\. /g },
 ];
 
 export function readVersion(repo = REPO) {

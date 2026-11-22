@@ -119,10 +119,10 @@ select.mc-in{appearance:auto}
 #title.tsub #thead{width:min(100%,460px)}
 #title.tsub #tlogo{animation:none}
 #thead{position:relative;display:flex;flex-direction:column;align-items:center;width:min(100%,780px);flex:none}
-#tlogo{display:block;width:min(100%,780px);max-width:calc(1600px / var(--uiz));height:auto;image-rendering:auto;
+#tlogo{display:none;width:min(100%,780px);max-width:calc(1600px / var(--uiz));height:auto;image-rendering:auto;
   filter:drop-shadow(0 4px 0 rgba(0,0,0,.35)) drop-shadow(0 0 18px rgba(0,0,0,.35));animation:tlogo 7s ease-in-out infinite}
 @keyframes tlogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-#ttag{align-self:flex-end;margin:-10px 4% 0 0;transform:rotate(-4deg);flex:none}
+#tbrand{margin:0;color:#f4f0df;font:900 clamp(42px,8vw,100px)/.95 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 5px 0 #49351f,0 9px 18px rgba(0,0,0,.6);-webkit-text-stroke:2px #2b241c;animation:tlogo 7s ease-in-out infinite}\n#ttag{align-self:flex-end;margin:-10px 4% 0 0;transform:rotate(-4deg);flex:none}
 #title.tsub #ttag{margin-top:-14px}
 #title.tsub #t_ver{font-size:13px;padding:2px 9px 1px}
 #t_ver{display:inline-block;padding:4px 12px 3px;background:#ffd84d;color:#2a1d12;border:3px solid #2a1d12;
@@ -173,7 +173,7 @@ select.mc-in{appearance:auto}
   padding:6px 8px;margin:4px 0;font-size:15px}
 .wrow span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wrow .mc-btn.small{padding:7px 12px;font-size:14px}
-@media (prefers-reduced-motion:reduce){#tlogo{animation:none}.mc-btn{transition:none}}
+@media (prefers-reduced-motion:reduce){#tlogo,#tbrand{animation:none}.mc-btn{transition:none}}
 @media (max-height:520px){#tstage{gap:8px;padding:8px 10px}#tlogo{width:min(100%,520px)}
   #tmain{gap:6px}#tmain .mc-btn{padding:9px 12px;font-size:16px}#tmain .trow .mc-btn{padding:8px 6px;font-size:14px}}
 /* a phone on its side: the logo on the left, the menu on the right */

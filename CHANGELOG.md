@@ -1,4 +1,6 @@
-# DINGLECRAFT changelog
+# Randomcraft changelog
+
+Randomcraft 1.0 is the first release under the Randomcraft name. This fork builds on Dinglecraft by Dan Dingle; original attribution and third-party credits are retained.
 
 Every release's patch notes, newest first. This file is generated from
 `PATCH_LOG` in `src/ui/p28_patch_notes.js` by `npm run changelog`: change the patch notes there, never here.
@@ -20,6 +22,14 @@ A version appears once `npm run release` has recorded it in `tests/fixtures/ship
 <!-- /manual -->
 
 <!-- generated from PATCH_LOG: do not edit below this line (up to the next manual block) -->
+
+## Randomcraft 1.0 — A New Beginning
+
+*The first public release under the Randomcraft name.*
+
+- A new identity, title-screen branding, project documentation, and standalone development direction.
+- Explore generated voxel worlds, build and craft, discover structures and dungeons, battle creatures and bosses, and visit the Nether and Aether.
+- Choose Survival or Creative, experiment with gadgets and vehicles, and optionally use Hyperreal visuals or AI players.
 
 ## Release 1.0 — Replays
 

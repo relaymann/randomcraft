@@ -48,7 +48,7 @@ function build(dir) {
   const hrGen = P('hr_assets.gen.js'), mgGen = P('mg_assets.gen.js');
   const html = P(info.html.file);
   ok('build.json version is GAME_VERSION', info.version === VER);
-  ok('html file is dinglecraft_v<VER>.html', info.html.file === `dinglecraft_v${VER}.html`);
+  ok('html file is randomcraft_v<VER>.html', info.html.file === `randomcraft_v${VER}.html`);
   ok('html = head + game + hrassets + tail', html.equals(Buffer.concat([head, game, hrassets, tail])));
   ok('hrassets = hr_assets.gen.js + mg_assets.gen.js', hrassets.equals(Buffer.concat([hrGen, mgGen])));
   ok('build.json md5s match the written files', info.html.md5 === md5(html) && info.parts.game.md5 === md5(game) && info.parts.head.md5 === md5(head));
@@ -86,10 +86,10 @@ function build(dir) {
   ok('.gitattributes: "* -text" (no EOL normalisation)', gattr.split('\n').includes('* -text'));
   const noDiff = gattr.split('\n').filter((l) => /\s-diff\b/.test(l) && !l.startsWith('#'));
   ok('.gitattributes hides no source file from diffs (-diff only on the generated og_trace fixtures and the play file)' + (noDiff.length > 2 ? ' (' + noDiff.join(', ') + ')' : ''),
-    noDiff.length === 2 && noDiff[0] === 'tests/fixtures/og_trace/*.json -diff' && noDiff[1] === 'DINGLECRAFT.html -diff linguist-generated');
-  // ---- the play file (DINGLECRAFT.html): the newest release, byte for byte (npm run release copies it in)
+    noDiff.length === 2 && noDiff[0] === 'tests/fixtures/og_trace/*.json -diff' && noDiff[1] === 'RANDOMCRAFT.html -diff linguist-generated');
+  // ---- the play file (RANDOMCRAFT.html): the newest release, byte for byte (npm run release copies it in)
   { const pc = require('../lib/repo_files.js').playCheck();
-    ok('DINGLECRAFT.html is the newest release, byte for byte (' + (pc.present ? (pc.version ? 'v' + pc.version : 'not a shipped build') + ', newest v' + pc.newest : 'missing') + ')',
+    ok('RANDOMCRAFT.html is the newest release, byte for byte (' + (pc.present ? (pc.version ? 'v' + pc.version : 'not a shipped build') + ', newest v' + pc.newest : 'missing') + ')',
       pc.present && pc.version !== null && pc.version === pc.newest); }
 
   // ---- boundary contract

@@ -5,11 +5,11 @@
 - **A shipped version is frozen.** Every released version is recorded (bytes and md5 of its html) in
   `tests/fixtures/shipped.json`. If the current `GAME_VERSION` is in that list, the build must reproduce those exact bytes.
   So any change that alters the output starts with a version bump.
-- **One new file per release.** `dist/dinglecraft_v<X.Y>.html` is never overwritten: someone may be playing last
+- **One new file per release.** `dist/randomcraft_v<X.Y>.html` is never overwritten: someone may be playing last
   night's build while the next one is cooking.
 - **Versions are two-part**, `X.Y` (6.3, 6.4, ... 7.0). There are no patch versions: a hotfix is the next minor version.
-  The brain only serves files named `dinglecraft_v<X>.<Y>.html`.
-- **Every version also has a public label** (`RELEASE_LABEL`, e.g. "Release 1.0" for game versions 6.5 to 6.9). Players
+  The brain only serves files named `randomcraft_v<X>.<Y>.html`.
+- **Every version also has a public label** (`RELEASE_LABEL`, e.g. "Randomcraft 1.0" for the first public release under the Randomcraft name; the internal build counter remains separate). Players
   and readers see the label; saves, migrations, file names and comparisons use the version. Consecutive versions may share
   a label (the cuts of one release); a label never comes back once a newer one has shipped. The full scheme is in
   [CONTRIBUTING.md](../CONTRIBUTING.md), "Versions and release labels".

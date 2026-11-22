@@ -7,7 +7,7 @@
                           .env / .env.* file except .env.example, which is never opened by anything here.
    R.isBinary(buf)     -> a NUL byte in the first 8 KB
    R.BIN_EXT           -> extensions read as binary without looking (images, audio, fonts, archives)
-   R.PLAY_FILE         -> 'DINGLECRAFT.html': the newest released build, committed at the repo root so players can download it
+   R.PLAY_FILE         -> 'RANDOMCRAFT.html': the newest released build, committed at the repo root so players can download it
                           (scripts/release.mjs copies it there)
    R.playCheck()       -> {present, md5, version, newest}: version is the shipped.json version whose md5 the play file carries,
                           counted only for a public build (game 6.4 or later: older builds held private paths), else null
@@ -35,7 +35,7 @@ function list(){const out=[];const root=P.REPO.replace(/\/$/,'');
   })(root,'');
   return out.sort();}
 function isBinary(buf){return buf.subarray(0,8192).includes(0);}
-const PLAY_FILE='DINGLECRAFT.html',FIRST_PUBLIC=[6,4];
+const PLAY_FILE='RANDOMCRAFT.html',FIRST_PUBLIC=[6,4];
 const vnum=v=>String(v).split('.').map(Number),vcmp=(a,b)=>{const x=vnum(a),y=vnum(b);return x[0]-y[0]||x[1]-y[1];};
 function playCheck(){const abs=path.join(P.REPO,PLAY_FILE);if(!fs.existsSync(abs))return {present:false,md5:null,version:null,newest:null};
   const md5=require('crypto').createHash('md5').update(fs.readFileSync(abs)).digest('hex');
