@@ -115,16 +115,16 @@ function closeStore(){
 }
 function renderStore(){
   const bal=$('storedb');
-  if(bal)bal.textContent=P.db+' DB';
+  if(bal)bal.textContent=P.db+' RB';
   const list=$('storelist');
   if(!list)return;
   let h='';
   for(const it of STORE_CAT){
     const owned=P.own.includes(it.key);
     const eq=(it.kind==='hat'&&P.cos.hat===it.id)||(it.kind==='trail'&&P.cos.trail===it.id);
-    let btn=owned?(it.kind==='joke'?'OWNED':(eq?'UNEQUIP':'EQUIP')):(it.price+' DB');
+    let btn=owned?(it.kind==='joke'?'OWNED':(eq?'UNEQUIP':'EQUIP')):(it.price+' RB');
     if(it.key==='joke_bpass'&&owned)btn=P.bp?'PAUSE ⏸':'RESUME ▶';
-    if(it.key==='joke_loot')btn=it.price+' DB';
+    if(it.key==='joke_loot')btn=it.price+' RB';
     h+='<div class="sitem'+(eq?' eq':'')+'"><div class="sname">'+it.name+'</div><div class="sdesc">'+it.desc+'</div>'+
        '<button class="sbuy" data-k="'+it.key+'">'+btn+'</button></div>';
   }
