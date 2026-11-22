@@ -1,10 +1,10 @@
-/* DINGLECRAFT AI BRAIN - local server that holds the Anthropic key.
+/* RANDOMCRAFT AI BRAIN - local server that holds the Anthropic key.
    The game page only ever sends JSON observations here; this process builds the
    Claude request (prompts.mjs), calls the API, and hands back the parsed JSON.
 
    Run:  npm run brain                (from the repo root; or double-click "Start AI Brain.command")
    Open: http://127.0.0.1:8644/
-   It serves the newest dist/dinglecraft_v<maj>.<min>.html (run `npm run build` first).
+   It serves the newest dist/randomcraft_v<maj>.<min>.html (run `npm run build` first).
 
    The key (bring your own; see .env.example and brain/README.md), first match wins:
      1. the dotenv file named by DINGLE_ENV_PATH, else the repo's own .env (gitignored);
@@ -47,7 +47,7 @@ const FALLBACK_BETA = 'server-side-fallback-2026-07-01';
 const LANES = new Set(['act', 'build', 'mind']);
 const BOTS = new Set(['BunkerBrad', 'xx_lilcreepah_xx', 'honeybee_mc']);
 const BODY_CAP = 64 * 1024;
-const VERSION_RE = /^dinglecraft_v(\d+)\.(\d+)\.html$/;
+const VERSION_RE = /^randomcraft_v(\d+)\.(\d+)\.html$/;
 const HEX64 = /^[0-9a-f]{64}$/;
 /* total time budget per /turn (both attempts), kept under the game's own fetch timeout
    (30 s for act, 60 s for build/mind) so we never pay for answers nobody waits for */
@@ -293,7 +293,7 @@ export async function startServer(opts = {}) {
   function serveGame(res, name) {
     const versions = listVersions();
     const pick = name ? versions.find((v) => v.name === name) : versions[versions.length - 1];
-    if (!pick) return sendJSON(res, 404, { ok: false, error: name ? 'not found' : 'no dinglecraft_v*.html in the game folder' });
+    if (!pick) return sendJSON(res, 404, { ok: false, error: name ? 'not found' : 'no randomcraft_v*.html in the game folder' });
     let html;
     try { html = fs.readFileSync(path.join(gameDir, pick.name), 'utf8'); } catch { return sendJSON(res, 404, { ok: false, error: 'not found' }); }
     const body = Buffer.from(injectToken(html), 'utf8');
@@ -702,7 +702,7 @@ export async function startServer(opts = {}) {
     : `${KEY_VAR} missing - add it to ${envPath || '(no .env path)'} (copy .env.example to .env), or export it before starting (the brain re-checks automatically)`;
   out('');
   out('  ==================================================');
-  out(`   DINGLECRAFT AI BRAIN v${VERSION}`);
+  out(`   RANDOMCRAFT AI BRAIN v${VERSION}`);
   out(`   Open the game:  http://127.0.0.1:${port}/`);
   out(`   Pairing code for file:// pages: ${fmtPairCode(S.pairCode)}`);
   out(`     (only needed if you open the .html file directly: type /pair ${fmtPairCode(S.pairCode)} in game chat)`);
