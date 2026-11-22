@@ -32,7 +32,7 @@ function fail(msg) { say(msg); process.exit(1); }
 
 say();
 say('===========================================');
-say('  DINGLECRAFT AI BRAIN - starting up');
+say('  RANDOMCRAFT AI BRAIN - starting up');
 say('===========================================');
 say();
 
