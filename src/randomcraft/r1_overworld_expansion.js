@@ -59,7 +59,7 @@ treeAt = function(x,z){
   const ci=colInfo(x,z);
   if(ci.h<=SEA+1)return null;
   let density=0,type=0;
-  if(ci.b===BIOME.AUTUMN){density=.047;type=0;}
+  if(ci.b===BIOME.AUTUMN){density=.047;type=1;}
   else if(ci.b===BIOME.MEADOW){density=.004;type=0;}
   else if(ci.b===BIOME.REDWOOD){density=.062;type=2;}
   else if(ci.b===BIOME.MARSH){density=.012;type=2;}
@@ -293,7 +293,7 @@ updateEntities=function(dt){
   if(y>surfaceTop(x,z)+3)return;
   const b=colInfo(x,z).b;
   if(b===BIOME.AUTUMN){
-    burstParticles(P.x+(Math.random()-.5)*7,P.y+2.2,P.z+(Math.random()-.5)*7,B.LEAF_O,2,.35);
+    burstParticles(P.x+(Math.random()-.5)*7,P.y+2.2,P.z+(Math.random()-.5)*7,B.LEAF_B,2,.35);
   }else if(b===BIOME.MARSH){
     burstParticles(P.x+(Math.random()-.5)*5,P.y+.15,P.z+(Math.random()-.5)*5,B.WATER,2,.18);
   }else if(b===BIOME.HIGHLANDS&&sunUp()){
