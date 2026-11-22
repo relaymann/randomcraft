@@ -6,4 +6,4 @@
 tests/fixtures/og_trace/*.json -diff
 # The play file is the newest released build, copied in by `npm run release` (42 MB): diffs of it are noise, and it is
 # not source, so GitHub leaves it out of the language stats.
-DINGLECRAFT.html -diff linguist-generated
+RANDOMCRAFT.html -diff linguist-generated
