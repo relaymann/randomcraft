@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// DINGLECRAFT build: src/ + html/ + assets/ -> build/{head.html,game.js,hrassets.js,...} and dist/dinglecraft_v<VER>.html.
+// DINGLECRAFT build: src/ + html/ + assets/ -> build/{head.html,game.js,hrassets.js,...} and dist/randomcraft_v<VER>.html.
 // Node only, no dependencies. The build is plain concatenation: it adds and changes nothing (docs/BUILD.md).
 //
 //   node scripts/build.mjs [--out DIR] [--dist DIR] [--no-check] [--strict] [--quiet]
@@ -109,7 +109,7 @@ if (!tail.toString('utf8').startsWith('</script>')) fail(['html/tail.html must b
 
 // 8. write -----------------------------------------------------------------------------------------
 const html = Buffer.concat([head, game, hrassets, tail]);
-const htmlName = `dinglecraft_v${VER}.html`;
+const htmlName = `randomcraft_v${VER}.html`;
 const shipped = JSON.parse(fs.readFileSync(path.join(FIX, 'shipped.json'), 'utf8')).shipped || {};
 const frozen = shipped[VER] ? (md5(html) === shipped[VER].md5 && html.length === shipped[VER].bytes ? 'match' : 'mismatch') : 'not-shipped';
 const writeAtomic = (dir, name, buf) => {
@@ -164,7 +164,7 @@ writeAtomic(OUT, 'build.json', Buffer.from(JSON.stringify(info, null, 2) + '\n')
 
 // 12. report ---------------------------------------------------------------------------------------
 const pad = (s, n) => (s + ' '.repeat(n)).slice(0, n);
-log(`DINGLECRAFT v${VER}: ${srcOrder.length} src files (${lint.checked} markers OK), ${htmlOrder.length} html files, ${A.info.hrKeys}+${A.info.mgKeys} packed payloads`);
+log(`Randomcraft v${VER}: ${srcOrder.length} src files (${lint.checked} markers OK), ${htmlOrder.length} html files, ${A.info.hrKeys}+${A.info.mgKeys} packed payloads`);
 for (const [n, b] of [['head.html', head], ['game.js', game], ['hr_assets.gen.js', hrBuf], ['mg_assets.gen.js', mgBuf], ['hrassets.js', hrassets], ['tail.html', tail], [htmlName, html]])
   log(`  ${pad(n, 24)} ${String(b.length).padStart(10)} B  md5 ${md5(b)}`);
 log(`  sections: ${sections.map((s) => s.name + ' ' + s.bytes).join(', ')}; html cap ${guards.html_cap}`);
