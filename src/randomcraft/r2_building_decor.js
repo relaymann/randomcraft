@@ -47,8 +47,8 @@ tile('rc_planter',c=>{
   c.fillStyle='#e6c66b';c.fillRect(4,3,2,2);c.fillStyle='#e5e0c5';c.fillRect(10,1,2,2);
 });
 
-R(['SSS','SFS','SSS'],{S:B.STONEBRICK,F:B.TALLGRASS},B.RC_MOSS_BRICK,8);
+R(['SSS','SFS','SSS'],{S:B.STONEBRICK,F:IT.CLAYBALL},B.RC_MOSS_BRICK,8);
 R([' I ','ITI',' I '],{I:IT.IRON,T:B.TORCH},B.RC_LANTERN,2);
 R(['SSS','SSS'],{S:B.STONE},B.RC_SLATE,6);
 R(['PPP','PPP'],{P:B.PLANK_S},B.RC_DARK_PLANK,6);
-R([' F ','G G',' G '],{G:B.GRAVEL,F:B.FLOWER_R},B.RC_PLANTER,1);
+R([' S ','S S',' S '],{S:IT.STICK},B.RC_PLANTER,1);
