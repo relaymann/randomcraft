@@ -197,7 +197,7 @@ R(['STH','S H','STH'],{S:IT.STICK,T:IT.STRING,H:IT.RC_HIDE},IT.RC_HUNTER_BOW,1);
 R([' M ','SAS',' M '],{M:IT.STEAK,S:IT.APPLE,A:IT.APPLE},IT.RC_RATION,2);
 
 /* Two new creatures use the established mob rig, physics, drops and XP loop. */
-MOBT.deer={hp:14,hw:.38,h:1.35,spd:1.28,quad:true,body:'#a8794d',legc:'#69472f',
+MOBT.deer={hp:14,hw:.38,h:1.8,spd:1.28,quad:true,body:'#a8794d',legc:'#69472f',
   drop:{id:IT.RC_HIDE,min:1,max:2},xp:3};
 MOBT.cave_mite={hp:15,hw:.32,h:1.05,spd:1.42,hostile:true,nightOnly:true,dmg:2,
   body:'#55796a',legc:'#263c35',drop:{id:IT.RC_CHITIN,min:1,max:2},xp:4};
