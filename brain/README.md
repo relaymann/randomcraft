@@ -11,7 +11,7 @@ total, `brain/data/spend.jsonl` logs every call, and there are hard per-bot and 
 ## Start it
 
 ```
-npm run build          # once: writes dist/dinglecraft_v<VER>.html
+npm run build          # once: writes dist/randomcraft_v<VER>.html
 npm ci --prefix brain  # once: installs the Anthropic SDK from the lockfile
 npm run brain          # then open http://127.0.0.1:8644/
 ```
@@ -20,7 +20,7 @@ On macOS you can double-click `Start AI Brain.command` in the repo root instead:
 installs the SDK on first run, builds the game if `dist/` is empty, starts the brain and opens the
 page. Keep the window open while you play; Ctrl+C stops it.
 
-The brain serves the newest `dist/dinglecraft_v<maj>.<min>.html` with a page token injected. If you
+The brain serves the newest `dist/randomcraft_v<maj>.<min>.html` with a page token injected. If you
 open the html file directly (`file://`), type `/pair <code>` in game chat with the pairing code the
 banner shows.
 
@@ -45,7 +45,7 @@ ever talks to `api.anthropic.com`.
 | name | default | what |
 |---|---|---|
 | `DINGLE_ENV_PATH` | `<repo>/.env` | dotenv file holding `ANTHROPIC_API_KEY` |
-| `DINGLE_GAME_DIR` | `<repo>/dist` | folder whose newest `dinglecraft_v*.html` is served |
+| `DINGLE_GAME_DIR` | `<repo>/dist` | folder whose newest `randomcraft_v*.html` is served |
 | `DINGLE_DATA_DIR` | `brain/data` | tokens, spend log, turn log (local only, gitignored) |
 | `DINGLE_BRAIN_PORT` | `8644` | the brain's port (127.0.0.1 only); the game's own origin port is 8643 |
 
