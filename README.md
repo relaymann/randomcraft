@@ -1,155 +1,113 @@
-# Randomcraft
+# Randomcraft 1.0
 
-Randomcraft is a heavily modified fork of Dinglecraft by Dan Dingle. The game has been rebranded and expanded in this fork. Original creator attribution and the repository's existing LICENSE remain unchanged.
+**A standalone voxel sandbox about building, exploring, surviving, and making your own stories.**
 
-A fan-made, Minecraft-style voxel sandbox that ships as **one HTML file**. Punch trees, build a house, then find out
-the game also has a casino, a stock market, rideable dragons, a microtransaction store that sells "Remove Ads" (there
-are no ads), walking Nuke Kegs, a nuclear bomb you drop from a prop plane, three AI players with their own grudges, a
-photoreal texture pack, a trip to Puppet Purgatory, an easel and a record player, and a sixteen-metre demon who has
-taken a bite out of the world.
+Randomcraft is a heavily modified, independently developed fork of **Dinglecraft by Dan Dingle**. This fork gives the game its own identity, direction, presentation, and long-term roadmap while retaining appropriate original-work attribution and third-party credits.
 
-It runs on [three.js](https://threejs.org) r128 and nothing else: no framework, no bundler, no npm packages in the game.
-The whole game is about 41,000 lines of plain JavaScript, built here from per-system source files into a single
-`randomcraft_v<version>.html` you can double-click. three.js is bundled inside that file, so it plays offline.
+> Randomcraft is not affiliated with, endorsed by, or sponsored by Mojang or Microsoft. Minecraft is a trademark of Microsoft. See [LICENSE](LICENSE) and [THIRD_PARTY.md](THIRD_PARTY.md) for the project’s terms and asset credits.
 
-> RANDOMCRAFT is an independent fan-made game. NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG
-> OR MICROSOFT. Other names belong to their owners. Free to play and tinker with, not to redistribute: see [LICENSE](LICENSE).
+## Play
 
----
+Randomcraft is designed to be distributed as a self-contained HTML game. The built game bundles its runtime and assets so it can run in a modern browser without a separate game installation.
 
-## Play it
+### Build it locally
 
-**Just want to play?** Build the game with `npm run build`, then open the generated `dist/randomcraft_v<version>.html` file. That is the whole game, on Windows, macOS or Linux. It is
-developed and tested in Chrome, so an up-to-date Chrome or Edge is the safest bet.
+- **Node.js 20 or newer**
+- No npm packages are required for the build.
 
-You need a desktop browser with WebGL (WebGL2 for the Hyperreal texture pack). No internet connection: three.js is
-bundled into the file. To build the file yourself you need [Node.js](https://nodejs.org) 20 or newer (22 is what we use; see
-`.nvmrc`). Nothing else.
-
-```
+```sh
 npm run build
 ```
 
-That writes `dist/randomcraft_v7.0.html` (about 42.5 MB; every texture is inside it). `RANDOMCRAFT.html` at the repository root is the frozen v6.9 legacy snapshot; use the generated v7.0 file to play the rebranded fork. Then either:
+The playable build is written to `dist/randomcraft_v7.0.html` (the internal build number is retained for save/version compatibility; the public release is Randomcraft 1.0).
 
-- **double-click it** (it works straight from disk), or
-- **serve it:** `npm run serve`, then open the `dist/` link it prints (`http://127.0.0.1:8643/...`).
+To serve the repository locally:
 
-Your worlds are saved in the browser, per site: the `file://` page, `http://127.0.0.1:8643` (`npm run serve`) and the
-brain's `http://127.0.0.1:8644` each have their own save list. Clearing your browsing data deletes them, so use Export
-World (pause menu) to keep a copy.
-
-**Controls** (the full list is in Help & Controls on the title screen): WASD to move, Space to jump, Shift to sneak,
-double-tap W or hold Ctrl to sprint, hold left mouse to mine or attack, right mouse to place, use or eat, 1-9 or the
-scroll wheel for the hotbar, E for the inventory, Q to drop, F to change camera, T or Enter for chat, Esc to pause,
-F3 for the debug overlay. Settings → Texture pack switches between **OG** (16 px, the classic look) and **Hyperreal**;
-Settings → UI Scale makes the whole interface bigger or smaller (Auto picks a size for your screen); the sliders set the
-field of view, mouse sensitivity and the sound and music volume.
-
-## AI players (bring your own Anthropic key)
-
-Three AI players can share your world: **BunkerBrad**, **xx_lilcreepah_xx** and **honeybee_mc**. They survive by your
-rules, hold grudges and chat. Their minds run on Claude through a small local server in `brain/`, using **your own**
-Anthropic API key. Without the brain they still play, on a simple autopilot, and cannot chat.
-
-0. Invite them: tick **AI Players** on Create New World (it is off by default), or right-click a saved world in Load
-   World and turn the rule on. In a world, `/bots join` and `/bots leave` do the same.
-1. Copy `.env.example` to `.env` (in the repo root) and put your key after `ANTHROPIC_API_KEY=`.
-   `.env` is gitignored: never commit it, never paste it anywhere else.
-2. Start the brain:
-   - **macOS:** double-click `Start AI Brain.command`.
-   - **Any system:** `node brain/launch.mjs` (or `npm run brain:launch`).
-
-   Either one installs the brain's one dependency on first run, builds the game if `dist/` is empty, starts the brain
-   and opens the game at `http://127.0.0.1:8644/`. Keep that window open while you play.
-
-**It costs real money while it runs**: every bot decision is an API call (in our own sessions, roughly a few dollars an
-hour with all three bots). The brain prints a running total, logs spend locally in `brain/data/` (never committed), and
-stops spending the moment a file named `STOP` exists in `brain/`. Details: [docs/BRAIN.md](docs/BRAIN.md) and
-[brain/README.md](brain/README.md).
-
-## Build
-
-```
-npm run build              # about 1 second
+```sh
+npm run serve
 ```
 
-`scripts/build.mjs` concatenates `src/` (in `src/ORDER.txt` order) into `game.js`, `html/` into `head.html`, assembles
-the packed art in `assets/packed/` into `hrassets.js`, and writes:
+Then open the local address printed by the server. See [docs/BUILD.md](docs/BUILD.md) for build options and details.
 
-- `build/`: `head.html`, `game.js`, `hrassets.js`, `tail.html`, the two asset files and `build.json` (sizes and md5s);
-- `dist/randomcraft_v<VER>.html`: the game, `head + game + hrassets + tail`.
+## What’s in the game
 
-It checks a lot on the way (order files, syntax, size caps, version strings, asset hashes) and stops with a clear message
-when something is off. A version that has already shipped is **frozen**: if your change alters the output of a shipped
-version, the build warns you to bump the version first. Full contract: [docs/BUILD.md](docs/BUILD.md).
+### Explore a generated voxel world
+- Create worlds with a name, custom seed, and Survival or Creative mode.
+- Explore a procedurally generated block world with varied terrain, caves, ores, water, and points of interest.
+- Discover structures, dungeons, fortresses, shrines, and other places worth exploring.
+- Save worlds in the browser, then export and import world files to move or back them up.
 
-When the game moved into this repository, the build reproduced the shipped v6.3 file byte for byte. That is how we know
-the move lost nothing. The proof was measured on the pre-release tree, which is not public (this history starts at
-Release 1.0); [docs/PARITY.md](docs/PARITY.md) records it and gives the check you can run today: a clone of a release tag
-rebuilds that release's file byte for byte (`git checkout <tag> && npm run build`, then compare the md5 with
-`tests/fixtures/shipped.json`). Release 1.0 is the first release built here.
+### Build, mine, craft, and survive
+- Gather resources, mine blocks, craft equipment, and build your own structures.
+- Use tools, weapons, armour, furnaces, chests, doors, and other interactive blocks.
+- Manage health, hunger, inventory, equipment durability, and the day/night cycle in Survival.
+- Switch to Creative for unrestricted building and experimentation.
+- Configure world rules when creating a world, with additional controls available in-game.
 
-## Test
+### Creatures, combat, and challenges
+- Encounter passive wildlife, hostile creatures, and powerful bosses.
+- Fight with melee weapons, bows, firearms, gadgets, and other equipment.
+- Find boss encounters, dungeons, loot, and progression rewards while exploring.
+- Face optional world rules and unusual threats that can change how a world plays.
 
-| command | what | time |
-|---|---|---|
-| `npm run test:quick` | build + the repo checks + every static suite + the core logic suite + the UI suites + one og_trace session | about 45 s |
-| `npm test` | build + every suite once | about 11 min |
-| `npm run gate` | the release gate: every suite, smokes repeated to catch flakes | about 20 min |
-| `npm run test:brain` | the brain's self-test (fake upstream, no key, free; run `npm ci --prefix brain` once first) | about 8 s |
+### Dimensions and discoveries
+- Travel beyond the Overworld into the **Nether** and the **Aether**.
+- Search dimension-specific structures, loot, gadgets, and bosses.
+- Use portals and exploration tools to find your way between distant discoveries.
 
-Every suite is a plain Node script that boots the real game against stubs and prints `N passed, M failed`. There are
-no test frameworks and no network calls. How to write one: [docs/TESTING.md](docs/TESTING.md).
+### Vehicles, gadgets, and creative toys
+- Use vehicles and rideable equipment to travel in different ways.
+- Discover gadgets such as a jetpack, grappling anchor, hang glider, loot magnet, climbing claws, blink pearl, and more.
+- Experiment with fishing, farming, collectibles, decorative items, and playful contraptions.
 
-**Browser checks are always muted.** If you drive the game in a browser for testing, use headless Chrome with
-`--mute-audio`, and set `soundOn=false; if(AC)AC.suspend()` on every page load. See [docs/QA.md](docs/QA.md).
+### Optional visual upgrades
+- Choose between the original visual style and the optional **Hyperreal** texture/lighting experience.
+- Hyperreal adds enhanced materials, lighting, shadows, atmosphere, and detailed creature appearances.
+- Visual quality options let players balance presentation and performance. Hyperreal requires WebGL 2; the original style remains available.
 
-## Project map
+### Optional AI players
+- A local AI brain service can support three named AI players with individual personalities, goals, memories, and relationships.
+- AI-player features require the separate brain service and a user-supplied Anthropic API key. Without the service, the game can use its simpler local behavior.
+- See the `brain/` directory and its README for setup and privacy details.
 
-```
-src/                 the game's JavaScript, one file per system (about 190 files), joined in src/ORDER.txt order
-  core/ world/ entities/ ui/ features/     the original sandbox, PARTs 1-52
-  ai_players/        PART 53, the AI players
-  texpacks/          PART 54, OG | Hyperreal texture packs (models/ = the Hyperreal cast)
-  purgatory/         PART 55, Puppet Purgatory
-  creativity/        PART 56, easels, record players, jukeboxes
-  malgorath/         PART 57, the Malgorath Update (hr/ = his Hyperreal block)
-  boot/              the node test export and the browser boot
-html/                the page shell: CSS per system, DOM by region, the 26-byte tail
-assets/              the title logo, title/ (the menu panorama), vendor/ (three.js r128, bundled), the packed Hyperreal
-                     art (429 WebP files), packer inputs
-scripts/             build, serve, bump, release, gate, changelog (Node, no dependencies)
-tests/               every test suite, fixtures, and the repo's own checks
-tools/               art packers and art tools, muted browser QA rigs, the secrets scan
-brain/               the AI players' local server (bring your own key)
-docs/                how everything works (start with ARCHITECTURE.md)
-```
+## Controls and help
 
-The horror features live in `src/features/part47.js` to `part50.js`: the Eternal Snail, the jumpscares, the guilt
-ghosts and "the others" (a few rare, unsettling events). They are ordinary source files like the rest.
+The in-game **Controls** screen lists the current controls. Key bindings can vary by context and equipment, so use the in-game help for the authoritative list. The pause menu also contains settings, world options, and other tools.
 
-## Documentation
+## Project goals
 
-| | |
+Randomcraft is intended to grow into a cohesive sandbox with its own identity—not just a collection of unrelated additions. The priorities are:
+
+1. **A richer world:** more distinctive biomes, caves, structures, secrets, and environmental variety.
+2. **Meaningful exploration:** discoveries, loot, dungeons, dimensions, and encounters that reward curiosity.
+3. **Deeper survival and building:** useful crafting paths, interactive blocks, world management, and more reasons to create a home.
+4. **Believable creatures:** improved models, animation, sound, combat, and behavior for both ordinary mobs and major threats.
+5. **Polish and atmosphere:** consistent art direction, responsive controls, readable interfaces, sound design, and performance.
+6. **A stable game:** reliable saves, reproducible builds, compatibility checks, and regression tests before major releases.
+7. **Player creativity:** keep room for experimentation, unusual tools, vehicles, construction, and emergent stories.
+
+These are development goals, not a promise that every planned feature is already implemented. The project roadmap and current implementation notes live in `docs/`.
+
+## Development
+
+Useful commands:
+
+| Command | Purpose |
 |---|---|
-| [CONTRIBUTING.md](CONTRIBUTING.md) | how to make a change, add a feature, write tests, bump the version; the rules |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | how the game is put together: the PART map, systems, conventions, how each update hooks in |
-| [docs/BUILD.md](docs/BUILD.md) | the build contract, order files, guards |
-| [docs/TESTING.md](docs/TESTING.md) | the suites, the gate, how to write a test, the rig field manual |
-| [docs/QA.md](docs/QA.md) | muted browser QA |
-| [docs/ASSETS.md](docs/ASSETS.md) | the packed art, where the source art lives, how to repack |
-| [docs/BRAIN.md](docs/BRAIN.md) | the AI brain: keys, cost, data, safety |
-| [docs/RELEASING.md](docs/RELEASING.md) | version bumps, patch notes, releases |
-| [docs/LANDMINES.md](docs/LANDMINES.md) | things that have bitten before |
-| [docs/PARITY.md](docs/PARITY.md) | the byte-for-byte proof of the move into this repo (historical), and the check you can run today |
-| [docs/ROADMAP.md](docs/ROADMAP.md) | what comes next: lazy textures, ES modules, a newer three.js |
-| [docs/LEGACY.md](docs/LEGACY.md) | where every old file went |
-| [CLAUDE.md](CLAUDE.md) | the guide for AI coding sessions working in this repo |
-| [THIRD_PARTY.md](THIRD_PARTY.md) | third-party code and models, with their licences |
+| `npm run build` | Build the standalone HTML game |
+| `npm test` | Run the default test gate |
+| `npm run test:quick` | Run the quick test tier |
+| `npm run test:brain` | Run AI brain self-tests |
+| `npm run serve` | Serve the repository locally |
+| `npm run gate` | Run the full validation gate |
+| `npm run changelog` | Regenerate the changelog from patch-note data |
 
-## Licence
+Read [docs/BUILD.md](docs/BUILD.md), [docs/TESTING.md](docs/TESTING.md), and [CONTRIBUTING.md](CONTRIBUTING.md) before making substantial changes. Preserve the save format, build ordering, asset manifests, and existing tests when adding features.
 
-Source-available, no redistribution: you may play it, read it, tinker with it and make videos of it, but not hand it out
-or sell it. The full terms are in [LICENSE](LICENSE). Third-party components keep their own licences
-([THIRD_PARTY.md](THIRD_PARTY.md)). The AI players need your own Anthropic key; nothing in this repository includes one.
+## Credits and licensing
+
+- **Original project:** Dinglecraft by Dan Dingle. Randomcraft is a fork and substantial modification; original attribution and applicable licence terms are retained.
+- **Third-party code, models, and assets:** documented in [THIRD_PARTY.md](THIRD_PARTY.md) and the in-game Credits screen. Their original licences still apply.
+- **Project terms:** see [LICENSE](LICENSE). Do not assume that source visibility grants permission to redistribute the game or its assets.
+
+Contributions should respect all original and third-party licences, keep attribution intact, and include tests for behavior changes.
