@@ -1,4 +1,4 @@
-/* PART 52 - THE BIG DINGLE (a very large mistake you can craft) */
+/* PART 52 - THE RANDOMCRAFT BOMB (a very large mistake you can craft) */
 B.BUNKER=97;B.BGLASS=98;
 def(B.BUNKER,{name:'Bunkercrete',tiles:'bunk',hard:14,toolClass:'pick',req:true,tier:1});
 def(B.BGLASS,{name:'Bunker Glass',tiles:'bglass',hard:8,opq:false,bucket:'cut',cullSame:true,toolClass:'pick'});
@@ -17,7 +17,7 @@ tile('bglass',c=>{c.clearRect(0,0,16,16);
   c.fillStyle='rgba(255,255,255,0.55)';c.fillRect(2,2,1,3);c.fillRect(3,2,1,1);
   c.fillRect(11,10,1,3);c.fillRect(12,10,1,1);});
 IT.NUKE=282;
-idef(IT.NUKE,{name:'The Big Dingle',icon:'i_nuke',stack:1});
+idef(IT.NUKE,{name:'The Randomcraft Bomb',icon:'i_nuke',stack:1});
 tile('i_nuke',c=>{c.clearRect(0,0,16,16);
   c.fillStyle='#23252c';c.fillRect(5,2,6,10);c.fillRect(6,1,4,1);
   c.fillStyle='#31343d';c.fillRect(6,2,2,9);
