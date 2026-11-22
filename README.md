@@ -2,8 +2,6 @@
 
 Randomcraft is a heavily modified fork of Dinglecraft by Dan Dingle. The game has been rebranded and expanded in this fork. Original creator attribution and the repository's existing LICENSE remain unchanged.
 
-A fan-made, Minecraft-style voxel sandbox of Dinglecraft by Dan Dingle. Original creator attribution and the repository's LICENSE remain unchanged.
-
 A fan-made, Minecraft-style voxel sandbox that ships as **one HTML file**. Punch trees, build a house, then find out
 the game also has a casino, a stock market, rideable dragons, a microtransaction store that sells "Remove Ads" (there
 are no ads), walking Nuke Kegs, a nuclear bomb you drop from a prop plane, three AI players with their own grudges, a
