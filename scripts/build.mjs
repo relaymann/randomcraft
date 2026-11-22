@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// DINGLECRAFT build: src/ + html/ + assets/ -> build/{head.html,game.js,hrassets.js,...} and dist/randomcraft_v<VER>.html.
+// Randomcraft build: src/ + html/ + assets/ -> build/{head.html,game.js,hrassets.js,...} and dist/randomcraft_v<VER>.html.
 // Node only, no dependencies. The build is plain concatenation: it adds and changes nothing (docs/BUILD.md).
 //
 //   node scripts/build.mjs [--out DIR] [--dist DIR] [--no-check] [--strict] [--quiet]
